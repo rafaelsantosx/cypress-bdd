@@ -34,6 +34,7 @@ Feature: Register User
         When I click on Register
         Then I see "O campo senha deve ter pelo menos 6 dígitos" on register
 
+    @focus
     Scenario: Cadastro de usuário com sucesso
         And I fill my registration details
         When I click on Register

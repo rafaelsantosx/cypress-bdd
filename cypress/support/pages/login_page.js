@@ -1,28 +1,44 @@
 /// <reference types="cypress" />
 
+const elements = {
+    buttons: {
+        login: '#btnLogin'
+    },
+    fields: {
+        name: '#user',
+        email: '#email',
+        password: '#password'
+    },
+    messages: {
+        error: '.invalid_input',
+        successTitle: '#swal2-title',
+        successSubtitle: '#swal2-html-container'
+    }
+}
+
 export default{
     doLogin(){
-        cy.get('#btnLogin').click()
+        cy.get(elements.buttons.login).click()
     },
 
     checkErrorMessage(message){
-        cy.get('.invalid_input').should('have.text', message)
+        cy.get(elements.messages.error).should('have.text', message)
     },
 
     fillEmail(email){
-        cy.get('#user').type(email)
+        cy.get(elements.fields.name).type(email)
     },
 
     fillPassword (password){
-        cy.get('#password').type(password)
+        cy.get(elements.fields.password).type(password)
     },
 
     checkSucessMessage(email){
-        cy.get('#swal2-title')
+        cy.get(elements.messages.successTitle)
             .should('be.visible')
             .should('have.text', 'Login realizado')
 
-        cy.get('#swal2-html-container')
+        cy.get(elements.messages.successSubtitle)
             .should('be.visible')
             .should('have.text', `Olá, ${email}`)
     }

@@ -28,6 +28,6 @@ Then ("I see the message {string}", (message) =>{
     login_page.checkErrorMessage(message)
 })
 
-Then ("I see sucess message", async () => {
-    await login_page.checkSucessMessage(email)
+Then ("I see sucess message", () => {
+    login_page.checkSucessMessage(email)
 })
